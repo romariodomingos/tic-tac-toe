@@ -1,8 +1,8 @@
 const boardElement = document.getElementById('board');
 let board = [ ['', '', ''], ['', '', ''], ['', '', ''] ];
-let currentPlayer = 'X'; // Jogador humano começa
+let currentPlayer = 'X'; //  Human player starts
 
-// Renderizar o tabuleiro
+// Render The Board
 function renderBoard() {
   boardElement.innerHTML = '';
   board.forEach((row, rowIndex) => {
@@ -17,7 +17,7 @@ function renderBoard() {
   });
 }
 
-// Fazer uma jogada
+// Make a move
 function makeMove(row, col) {
   if (board[row][col] !== '' || currentPlayer !== 'X') return; // Impedir jogada inválida
   board[row][col] = 'X';
@@ -28,7 +28,7 @@ function makeMove(row, col) {
   aiMove();
 }
 
-// Verificar vencedor
+//  Check Winner
 function checkWinner() {
   const winningCombinations = [
     // Linhas
@@ -66,7 +66,7 @@ function checkWinner() {
   return false;
 }
 
-// Resetar o jogo
+// Reset The Game
 function resetGame() {
   board = [
     ['', '', ''],
@@ -77,7 +77,7 @@ function resetGame() {
   renderBoard();
 }
 
-// Movimento da IA baseado na dificuldade
+//  AI movement based on difficulty
 function aiMove() {
   const difficulty = document.getElementById('difficulty').value;
   if (difficulty === 'easy') {
@@ -92,7 +92,7 @@ function aiMove() {
   currentPlayer = 'X';
 }
 
-// Fácil (Jogadas Aleatórias)
+//  Easy (Random Plays)
 function aiMoveEasy() {
   const availableMoves = [];
   for (let i = 0; i < 3; i++) {
@@ -106,7 +106,7 @@ function aiMoveEasy() {
   board[move.i][move.j] = 'O';
 }
 
-// Médio (Bloqueio e Vitória)
+// Medium (Blockade and Victory)
 function aiMoveMedium() {
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 3; j++) {
@@ -129,7 +129,7 @@ function aiMoveMedium() {
   aiMoveEasy();
 }
 
-// Difícil (Minimax)
+// Hard (Minimax)
 function aiMoveHard() {
   let bestScore = -Infinity;
   let move;
@@ -151,7 +151,7 @@ function aiMoveHard() {
   board[move.i][move.j] = 'O';
 }
 
-// Algoritmo Minimax com poda alfa-beta
+//  Minimax algorithm with alpha-beta pruning
 function minimax(board, depth, isMaximizing, alpha, beta) {
   if (isWinner('O')) return 10 - depth;
   if (isWinner('X')) return depth - 10;
@@ -190,7 +190,7 @@ function minimax(board, depth, isMaximizing, alpha, beta) {
   }
 }
 
-// Checar vencedor para Minimax
+//  Check Winner for Minimax
 function isWinner(player) {
   const winningCombinations = [
     [[0, 0], [0, 1], [0, 2]],

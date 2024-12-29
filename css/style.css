@@ -18,7 +18,7 @@ select:focus {
     box-shadow: 0px 0px 6px #6495edcc;
 }
 
-select {
+section {
     width: 30%;
     padding: 10px;
     margin-bottom: 15px;

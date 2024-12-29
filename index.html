@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo da Velha</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1>Jogo da Velha</h1>
+  <div id="game-container">
+
+    <select id="difficulty">
+      <option value="easy">Fácil</option>
+      <option value="medium">Médio</option>
+      <option value="hard" selected>Difícil</option>
+    </select>    
+
+    <div id="board" class="board">
+
+      <!-- 9 células do tabuleiro -->
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+    </div>
+
+    <p id="winner-message"></p>
+    <button id="restart-button" class="restart-button">Reiniciar Jogo</button>
+  </div>
+
+  <footer>
+
+    <section class="attribution">
+      <p>Develop by: <a href="https://github.com/romariodomingos" rel="external"><strong>Romário Domingos</a></strong></p>
+    </section>
+
+  </footer>
+
+  <script src="js/game.js"></script>
+</body>
+</html>

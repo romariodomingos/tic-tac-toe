@@ -51,14 +51,14 @@ function checkWinner() {
       board[a[0]][a[1]] === board[b[0]][b[1]] &&
       board[a[0]][a[1]] === board[c[0]][c[1]]
     ) {
-      alert(`${board[a[0]][a[1]]} venceu!`);
+      alert(`${board[a[0]][a[1]]} Won!`);
       resetGame();
       return true;
     }
   }
 
   if (board.flat().every(cell => cell !== '')) {
-    alert('Empate!');
+    alert('Draw!');
     resetGame();
     return true;
   }
